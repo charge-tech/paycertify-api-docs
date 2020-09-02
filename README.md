@@ -2,16 +2,23 @@
 
 The following describes the entire flow from the perspective of a registered ProfitPay user when creating and funding a VCC:
 
-- Step Zero - User downloads app, succesfully registers, and passes KYC check
+- Step Zero 
+    - User downloads app
+    - succesfully registers
+    - User passes KYC check
 - [Step One](#step-one) - User receives a VCC with zero balance
 - [Step Two](#step-two) - We create a test bank account -to simulate the user's own real bank account- for the user with test funds so the VCC can be funded
-- [Step Three](#step-three) - The user moves funds via ACH from their test bank account to their previously empty VCC
+- [Step Three](#step-three) - The user moves funds via ACH from their test bank account via PayCertify API to their previously empty VCC
 
 Additional funtionality
 
+- `GET` all VCCs for user
+- `GET` VCC by `id` for user
 - `GET` cash back balance total - daily accumulated for current month
 - `GET` cash back balance daily - total accumualted daily
+- `PATCH` move VCC balance back to ProfitPay balance
 - `PATCH` cancel VCC - go balance go back to the user's original funding instrument
+- Callback for funding events
 
 API Design Expectations
 
