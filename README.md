@@ -7,6 +7,10 @@ The following describes the entire flow from the perspective of a registered Pro
 - [Step Two](#step-two) - We create a test bank account -to simulate the user's own real bank account- for the user with test funds so the VCC can be funded
 - [Step Three](#step-three) - The user moves funds via ACH from their test bank account to their previously empty VCC
 
+- cash back balance total - daily accumulated for current month
+- cash back balance daily - total accumualted daily
+- cancel VCC - go balance go back to the user's original funding instrument
+
 ## Step One
 
 The user receives a VCC with zero balance on card activation (after proper KYC flow).
