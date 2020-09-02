@@ -7,9 +7,18 @@ The following describes the entire flow from the perspective of a registered Pro
 - [Step Two](#step-two) - We create a test bank account -to simulate the user's own real bank account- for the user with test funds so the VCC can be funded
 - [Step Three](#step-three) - The user moves funds via ACH from their test bank account to their previously empty VCC
 
-- cash back balance total - daily accumulated for current month
-- cash back balance daily - total accumualted daily
-- cancel VCC - go balance go back to the user's original funding instrument
+Additional funtionality
+
+- `GET` cash back balance total - daily accumulated for current month
+- `GET` cash back balance daily - total accumualted daily
+- `PATCH` cancel VCC - go balance go back to the user's original funding instrument
+
+API Design Expectations
+
+- Expect API versioning - `api/prototype/v1.0/${}`
+- Expect `prototype` in route to be dropped in production - `api/v1.0/${}`
+- Expect all functionality to remain exactly the same when moving to production routes
+- Expect the current authentication scheme to work withouth modification in these new routes
 
 ## Step One
 
