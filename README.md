@@ -1,6 +1,10 @@
 # Complete Flow for ProfitPay VCC Functionality
 
-The following describes the entire flow from the perspective of a ProfitPay user when creating and funding a VCC. 
+The following describes the entire flow from the perspective of a ProfitPay user when creating and funding a VCC:
+
+- [Step One](#step-one) - User receives a VCC with zero balance
+- [Step Two](#step-two) - We create a test bank account with test funds so the VCC can be funded
+- [Step Three](#step-three) - The user moves funds via ACH from their test bank account to their previously empty VCC
 
 ## Step One
 
