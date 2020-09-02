@@ -1,9 +1,10 @@
 # Complete Flow for ProfitPay VCC Functionality
 
-The following describes the entire flow from the perspective of a ProfitPay user when creating and funding a VCC:
+The following describes the entire flow from the perspective of a registered ProfitPay user when creating and funding a VCC:
 
+- Step Zero - User downloads app, succesfully registers, and passes KYC check
 - [Step One](#step-one) - User receives a VCC with zero balance
-- [Step Two](#step-two) - We create a test bank account with test funds so the VCC can be funded
+- [Step Two](#step-two) - We create a test bank account -to simulate the user's own real bank account- for the user with test funds so the VCC can be funded
 - [Step Three](#step-three) - The user moves funds via ACH from their test bank account to their previously empty VCC
 
 ## Step One
@@ -84,7 +85,7 @@ request body
 
 ## Step Two
 
-Now that the user has a VCC, they need to fund it with funds from their bank account. So the user will add a bank account to their app. This means we need the ability to create *test* bank accounts for our users, which are visible from the VCC api to determine balances and funds compatibility.
+Now that the user has a VCC, they need to fund it with funds from their bank account. So the user will add a bank account to their app. This means we need the ability to create *test* bank accounts for our users, which are visible from the VCC API to determine balances and funds availability, meaning if a user tries to fund a VCC with a larger balance than their test bank account, VCC API should fail.
 
 **Endpoint required**
 
@@ -173,7 +174,7 @@ Request Body
 "funding": [
     {
         "method": "ACH",
-        "token": "tok_mock_n4hzy1n79kej989iafij9b",
+        "token": "token_for_tokenized_test_bank_account",
         "amount": 10000
     }
  ]
@@ -219,6 +220,6 @@ Request Body
 }
 ```
 
-- 404 when `tok_mock_n4hzy1n79kej989iafij9b` is incorrect
-- 402 for insufficient funds. Meaning the `amount` is greater than available in the `mock` bank account created previously
+- 404 when `cardId` is incorrect
+- 402 for insufficient funds. Meaning the `amount` is greater than available balance in the `mock` bank account created previously
 
